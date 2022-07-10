@@ -4,6 +4,8 @@ import * as dotenv from "dotenv";
 import * as cookieParser from "cookie-parser";
 import * as express from "express";
 
+dotenv.config();
+
 const app = express();
 
 const corsOptions: cors.CorsOptions = {
