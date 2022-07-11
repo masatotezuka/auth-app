@@ -2,6 +2,6 @@ import * as express from "express";
 
 const router = express.Router();
 
-router.post("/", (req, res, next) => {});
+router.get("/", (req, res, next) => {});
 
 export default router;
