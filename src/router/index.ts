@@ -5,6 +5,7 @@ import login from "./login";
 import signUp from "./signUp";
 import logout from "./logout";
 import home from "./home";
+import { jwtHelper } from "../helper/jwtHelper";
 
 const router = express.Router();
 
@@ -29,10 +30,7 @@ router.get("/tokenVerification", (req, res, next) => {
       console.log(err);
     } else {
       //検証がOKであれば、jwtトークンを再作成
-      const jweSecret = "secret123";
-      const token = jwt.sign({ foo: "bar" }, jweSecret, {
-        expiresIn: "30d",
-      });
+      const token = jwtHelper.createToken();
       res.cookie("jwtToken", token, {
         httpOnly: true,
         expires: new Date(Date.now() + ms("2d")),
