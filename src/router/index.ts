@@ -25,19 +25,16 @@ router.get("/tokenVerification", (req, res, next) => {
   }
 
   //  リクエストされたjwtトークンを検証
-  jwt.verify(token, "secret123", function (err, decoded) {
-    if (err) {
-      console.log(err);
-    } else {
-      //検証がOKであれば、jwtトークンを再作成
-      const token = jwtHelper.createToken();
-      res.cookie("jwtToken", token, {
-        httpOnly: true,
-        expires: new Date(Date.now() + ms("2d")),
-      });
-      res.status(200).json({ isAuthenticated: true });
-    }
-  });
+  const decode = jwtHelper.verifyToken(token);
+  if (decode) {
+    //検証がOKであれば、jwtトークンを再作成
+    const token = jwtHelper.createToken();
+    res.cookie("jwtToken", token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + ms("2d")),
+    });
+    res.status(200).json({ isAuthenticated: true });
+  }
 });
 
 //認証後ページからのデータ処理のルーティング
