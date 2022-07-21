@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
+    "serve": "ts-node-dev --respawn  src/index.ts --ignore-watch ./frontend",
+    "dev": "concurrently \"npm run serve\" \"cd frontend && npm start\"",
     "typeorm": "ts-node-dev  ./node_modules/typeorm/cli.js -d data-source.ts",
     "migration:generate": "npm run typeorm migration:generate",
     "migration:show": "npm run typeorm migration:show",
