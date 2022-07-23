@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { loginData, signUpData, logoutData, checkJwt, User } from "../api";
+import { checkJwt } from "../api";
 
 export const useAuth = () => {
   const [check, setCheck] = useState<{
