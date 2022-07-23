@@ -10,18 +10,21 @@ export type User = {
   password?: string;
 };
 
-export const loginData = async (apiUrl: string, data: User) => {
-  const response = await axios.post(apiUrl, data);
+export const login = async (data: User) => {
+  const response = await axios.post(`http://localhost:8000/login`, data);
   return response;
 };
 
-export const signUpData = async (apiUrl: string, data: User) => {
-  const response = await axios.post(apiUrl, data);
+export const signUp = async (data: User) => {
+  const response = await axios.post(
+    `http://localhost:8000/tokenVerification`,
+    data
+  );
   return response;
 };
 
-export const logoutData = async (apiUrl: string) => {
-  const response = await axios.post(apiUrl);
+export const logout = async () => {
+  const response = await axios.post(`http://localhost:8000/logout`);
   return response;
 };
 
