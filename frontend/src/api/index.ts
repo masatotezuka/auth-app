@@ -4,10 +4,10 @@ axios.defaults.withCredentials = true;
 
 export type User = {
   id?: number;
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   mail: string;
-  password: string;
+  password?: string;
 };
 
 export const login = async (apiUrl: string, data: User) => {
