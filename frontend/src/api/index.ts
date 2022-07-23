@@ -24,3 +24,8 @@ export const logoutData = async (apiUrl: string) => {
   const response = await axios.post(apiUrl);
   return response;
 };
+
+export const checkJwt = async () => {
+  const response = axios.get(`http://localhost:8000/tokenVerification`);
+  return response;
+};
