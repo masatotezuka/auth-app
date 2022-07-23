@@ -10,17 +10,17 @@ export type User = {
   password?: string;
 };
 
-export const login = async (apiUrl: string, data: User) => {
+export const loginData = async (apiUrl: string, data: User) => {
   const response = await axios.post(apiUrl, data);
   return response;
 };
 
-export const signUp = async (apiUrl: string, data: User) => {
+export const signUpData = async (apiUrl: string, data: User) => {
   const response = await axios.post(apiUrl, data);
   return response;
 };
 
-export const logout = async (apiUrl: string) => {
+export const logoutData = async (apiUrl: string) => {
   const response = await axios.post(apiUrl);
   return response;
 };
