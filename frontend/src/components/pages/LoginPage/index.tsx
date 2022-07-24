@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { User } from "../../../api/index";
+import { User, login } from "../../../api/index";
 
 export const LoginPage = () => {
   const {
@@ -8,8 +8,8 @@ export const LoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<User>();
-  const onSubmit: SubmitHandler<User> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<User> = async (data) => {
+    await login(data);
   };
 
   return (
