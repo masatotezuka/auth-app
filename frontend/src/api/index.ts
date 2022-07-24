@@ -16,10 +16,7 @@ export const login = async (data: User) => {
 };
 
 export const signUp = async (data: User) => {
-  const response = await axios.post(
-    `http://localhost:8000/tokenVerification`,
-    data
-  );
+  const response = await axios.post(`http://localhost:8000/sign-up`, data);
   return response;
 };
 
