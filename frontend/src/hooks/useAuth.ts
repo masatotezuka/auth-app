@@ -15,7 +15,7 @@ export const useAuth = () => {
           isAuthenticated: response.data.isAuthenticated,
         });
       } catch (error) {
-        setCheck({ checked: false, isAuthenticated: false });
+        setCheck({ checked: true, isAuthenticated: false });
       }
     };
     handleCheckJwt();
