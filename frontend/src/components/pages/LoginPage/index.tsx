@@ -1,13 +1,34 @@
 import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { User } from "../../../api/index";
 
 export const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<User>();
+  const onSubmit: SubmitHandler<User> = (data) => {
+    console.log(data);
+  };
+
   return (
     <div>
-      <form>
-        <label htmlFor="email_login">Eメール</label>
-        <input id="email_login" type="email" name="email" />
-        <label htmlFor="password_login">パスワード</label>
-        <input id="password_login" type="password" name="password" />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="email_register">Eメール</label>
+        <input
+          id="email_register"
+          type="email"
+          {...register("mail", { required: true })}
+        />
+        <p> {errors.mail && "文字が入力されていません"}</p>
+        <label htmlFor="password_register">パスワード</label>
+        <input
+          id="password_register"
+          type="password"
+          {...register("password", { required: true })}
+        />
+        <p> {errors.password && "文字が入力されていません"}</p>
         <button type="submit">ログイン</button>
       </form>
     </div>
