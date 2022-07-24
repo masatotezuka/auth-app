@@ -38,11 +38,7 @@ router.post("/", async (req, res, next) => {
           //cookieの有効期限は2日間に設定
           expires: new Date(Date.now() + ms("2d")),
         })
-        .json({
-          user: {
-            id: result.id,
-          },
-        });
+        .send("SUCCESS");
     } else {
       throw new Error("SERVER_ERROR");
     }
