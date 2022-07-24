@@ -4,6 +4,7 @@ import { TopPage } from "./components/pages/TopPage";
 import { HomePage } from "./components/pages/HomePage";
 import { SignUpPage } from "./components/pages/SignUpPage";
 import { LoginPage } from "./components/pages/LoginPage";
+import { NotFoundPage } from "./components/pages/NotFoundPage";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
         <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
