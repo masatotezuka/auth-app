@@ -3,7 +3,7 @@ import * as cors from "cors";
 import * as dotenv from "dotenv";
 import * as cookieParser from "cookie-parser";
 import * as express from "express";
-
+import router from "./router";
 dotenv.config();
 const app = express();
 
@@ -11,7 +11,7 @@ const corsOptions: cors.CorsOptions = {
   //フロントエンド側のポート番号を設定する
   origin: "http://localhost:3000",
   //認証情報の通信をするためcredentialsはtrueにする
-  credentials: false,
+  credentials: true,
 };
 
 //3000番ポートのリクエストを許可
@@ -30,5 +30,7 @@ AppDataSource.initialize()
   .catch((err) => {
     console.error("Error during Data Source initialization:", err);
   });
+
+app.use("/", router);
 
 app.listen(8000);

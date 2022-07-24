@@ -39,3 +39,5 @@ router.get("/tokenVerification", (req, res, next) => {
 
 //認証後ページからのデータ処理のルーティング
 router.use("/home", home);
+
+export default router;
