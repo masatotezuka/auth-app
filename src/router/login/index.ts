@@ -12,13 +12,13 @@ router.post("/", async (req, res, next) => {
   try {
     const user = req.body;
 
-    if (!user.email || !user.password) {
+    if (!user.mail || !user.password) {
       throw new Error("USERS_INVALID_VALUE");
     }
 
     //DBからユーザー情報を取得
     const result = await userRepository.findOne({
-      where: { mail: user.email },
+      where: { mail: user.mail },
     });
 
     //既に登録済みのアドレスかチェック

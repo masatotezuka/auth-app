@@ -11,18 +11,18 @@ export type User = {
 };
 
 export const login = async (data: User) => {
-  const response = await axios.post(`http://localhost:8000/login`, data);
-  return response;
+  await axios.post(`http://localhost:8000/login`, data);
+  return;
 };
 
 export const signUp = async (data: User) => {
-  const response = await axios.post(`http://localhost:8000/sign-up`, data);
-  return response;
+  await axios.post(`http://localhost:8000/sign-up`, data);
+  return;
 };
 
 export const logout = async () => {
-  const response = await axios.post(`http://localhost:8000/logout`);
-  return response;
+  await axios.post(`http://localhost:8000/logout`);
+  return;
 };
 
 export const checkJwt = async () => {

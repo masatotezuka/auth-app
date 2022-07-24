@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { signUp, User } from "../../../api/index";
 
 export const SignUpPage = () => {
@@ -8,9 +9,11 @@ export const SignUpPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<User>();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<User> = async (data) => {
     await signUp(data);
+    navigate("/home");
   };
   return (
     <div>
