@@ -12,7 +12,7 @@ const router = express.Router();
 //認証前ページからのデータ処理のルーティング
 router.use("/sign-up", signUp);
 router.use("/login", login);
-router.use("logout", logout);
+router.use("/logout", logout);
 
 //jwtトークンの検証
 router.get("/tokenVerification", (req, res, next) => {

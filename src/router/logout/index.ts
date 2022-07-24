@@ -5,10 +5,13 @@ const router = express.Router();
 
 router.post("/", (req, res, next) => {
   try {
-    return res.status(200).cookie("jwtToken", "", {
-      httpOnly: true,
-      expires: new Date(Date.now() + ms("1d")),
-    });
+    return res
+      .status(200)
+      .cookie("jwtToken", "", {
+        httpOnly: true,
+        expires: new Date(Date.now() + ms("1d")),
+      })
+      .send("SUCCESS");
   } catch (error) {
     console.log(error);
   }
