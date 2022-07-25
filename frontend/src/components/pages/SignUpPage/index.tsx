@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { signUp, User } from "../../../api/index";
