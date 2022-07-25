@@ -22,6 +22,8 @@ export const PrivateRoute = ({ children }: Props) => {
 export const GuestRoute = (props: Props) => {
   const { children } = props;
   const check = useAuth();
+  console.log(check);
+
   if (!check.checked) {
     return <div>Loading...</div>;
   }
